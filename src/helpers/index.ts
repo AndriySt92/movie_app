@@ -1,0 +1,9 @@
+export { createHTMLElement } from './dom/createHTMLElement';
+export { createSVGElement } from './dom/createSVGElement';
+export { clearInput } from './dom/clearInput';
+export { handleClickCategory } from './dom/handleClickCategory';
+export { handleSearch } from './dom/handleSearch';
+export { handleClickMovie } from './dom/handleClickMovie';
+export { handleClickLoadMore } from './dom/handleClickLoadMore';
+export { getRandomNumber } from './common/getRandomNumber';
+export { mapperMovie } from './common/mapperMovie';

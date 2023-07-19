@@ -1,6 +1,6 @@
-import { tmdbApi } from '../Api/thdb';
+import { tmdbApi } from '../Api/tmdb';
 import { IMovie, Categories, IMovieResponse, IMoviesResponseData } from '../Interfaces/IMovies';
-import { mapperMovie } from '../helpers/common/mapperMovie';
+import { mapperMovie } from '../helpers';
 
 export const getMovies = async (
     page: number = 1,
@@ -33,9 +33,9 @@ export const getMovieById = async (movieId: string): Promise<IMovie | void> => {
     }
 };
 
-export const searchMovie = async (query: string): Promise<IMovie[] | void> => {
+export const getSearchMovies = async (query: string, page: number = 1): Promise<IMovie[] | void> => {
     try {
-        const response = await fetch(`${tmdbApi.BASE_URL}search/movie?api_key=${tmdbApi.API_KEY}&query=${query}`);
+        const response = await fetch(`${tmdbApi.BASE_URL}search/movie?api_key=${tmdbApi.API_KEY}&query=${query}&page=${page}`);
         if (!response.ok) {
             throw new Error('Failed to get movie, got status: ' + response.status);
         }

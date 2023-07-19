@@ -1,10 +1,10 @@
 export interface IMovie {
-    backdrop_path: string;
+    mainImg: string;
     id: number;
-    original_title: string;
     overview: string;
     release_date: string;
     title: string;
+    posterImg: string
 }
 
 export interface IMovieResponse {

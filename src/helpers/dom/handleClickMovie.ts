@@ -15,10 +15,14 @@ export const handleClickMovie = async (movie: IMovie): Promise<void> => {
         svg?.setAttribute('fill', '#ff000078');
     } else {
         svg?.setAttribute('fill', 'red');
-
         movies.push(movie.id);
     }
 
-    localStorage.setItem('favoriteMovies', JSON.stringify(movies));
+    if(movies.length === 0){
+        localStorage.removeItem('favoriteMovies')
+    } else {
+        localStorage.setItem('favoriteMovies', JSON.stringify(movies));
+    }
+    
     renderFavoriteMovies();
 };

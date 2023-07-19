@@ -2,6 +2,7 @@ import { tmdbApi } from '../Api/tmdb';
 import { tagName } from '../Interfaces/IDom';
 import { IMovie } from '../Interfaces/IMovies';
 import { createHTMLElement, createSVGElement } from '../helpers';
+import { handleClickMovie } from '../helpers';
 
 export const movieCard = (movie: IMovie, classes: string, isFavoriteMovie = false): HTMLElement => {
     //container
@@ -33,7 +34,7 @@ export const movieCard = (movie: IMovie, classes: string, isFavoriteMovie = fals
     if (!isFavoriteMovie) {
         svg.id = movie.id.toString();
     }
-    svg.onclick = () => {}
+    svg.onclick = () => handleClickMovie(movie);
     // card
     const card = createHTMLElement({ tagName: tagName.DIV, classes: 'card-body' });
     // overview
